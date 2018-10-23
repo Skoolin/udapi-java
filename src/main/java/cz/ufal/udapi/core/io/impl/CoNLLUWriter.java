@@ -107,6 +107,11 @@ public class CoNLLUWriter implements DocumentWriter {
 
     public void processTree(StringBuilder sb, Root tree) throws UdapiIOException {
         List<Node> descendants = tree.getDescendants();
+
+        // * added by Maximilian
+        // write the sentence in the right order!!!
+        descendants.sort(Comparator.comparingInt(Node::getOrd));
+
         Bundle bundle = tree.getBundle();
 
         //do not write empty sentences
