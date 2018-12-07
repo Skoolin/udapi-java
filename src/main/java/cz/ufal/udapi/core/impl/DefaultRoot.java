@@ -118,7 +118,8 @@ public class DefaultRoot implements Root {
         copySubtree(getNode(), newRoot.getNode());
 
         // also copy tree informations!!!!
-        newRoot.setSentId(this.sentId);
+        if(this.sentId != null)
+            newRoot.setSentId(this.sentId);
         for(String c: this.comments) {
             newRoot.addComment(c);
         }
