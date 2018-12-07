@@ -116,6 +116,12 @@ public class DefaultRoot implements Root {
     public Root copyTree() {
         DefaultRoot newRoot = new DefaultRoot(document, bundle);
         copySubtree(getNode(), newRoot.getNode());
+
+        // also copy tree informations!!!!
+        newRoot.setSentId(this.sentId);
+        for(String c: this.comments) {
+            newRoot.addComment(c);
+        }
         return newRoot;
     }
 
